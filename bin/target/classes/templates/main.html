@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<title>PaintedByJeffDemo-main</title>
+
+	<div th:replace="fragments/head"></div>
+</head>
+
+<body>
+	
+	<div th:replace="fragments/navbar"></div>
+
+<div class="main">
+	<!-- jumbotron -->
+    <div class="jumbotron jumbotron-fluid">
+	  <div id="titlePicContainer">        <img src="https://www.paintedbyjeff.com/CAprogress2.gif" id="titlePic" alt="painting in progress"></div>
+	
+	  <div class="container">
+	                      
+	      <h1 class="display-4">Welcome to PaintedbyJeff.com!</h1>
+	      <p class="lead">Commission a portrait, buy a painting, or checkout my portfolio.
+	      </p>
+	  </div>
+    </div>
+		
+
+	<section id="featured">
+      <div class="sectionTitle">
+        <h1>Featured/For Sale</h1>
+      </div>
+      <!-- container to hold cards -->
+      <div class="row d-flex justify-content-center">
+      
+      <div th:each="product:${products}" class="cardContainer">
+        <div id="petsCard" class="card" style="width: 18rem;">
+          <img th:src="${product.image}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" th:text="${product.name}"></h5>
+            <p class="card-text" th:text="${product.description}"></p>
+            <a th:href="@{/product/} + ${product.id}" class="btn btn-secondary">Details</a>
+		</div>
+	</div>
+	</div>
+		</div>
+
+    </section>
+		
+</div>
+
+	<footer th:replace="fragments/footer"></footer>	
+
+</body>
+</html>
+

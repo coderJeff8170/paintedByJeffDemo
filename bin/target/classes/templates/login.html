@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<title>PaintedByJeffDemo-login</title>
+
+	<div th:replace="fragments/head"></div>
+</head>
+
+<body>
+	
+	<div th:replace="fragments/navbar"></div>
+
+<div class="main d-flex align-items-center">
+	<div id="signup-main" class="container form-container bg-light col-md-6">
+		<h2 class="text-center">Sign In</h2>
+		<form th:action="@{/login}" method="post">
+			<div class="form-group">
+				<input type="text" id="username" name="username" th:placeholder="Username" class="form-control" />
+			</div>
+			<div class="form-group">
+				<input type="password" th:placeholder="Password" id="password" name="password" class="form-control" />
+			</div>
+			<div align="center" th:if="${param.error}">
+					<h4 style="color: red">Login unsuccessful.</h4>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-md btn-outline-success" name="Submit" value="Login" type="Submit">Log in</button>
+			</div>
+		</form>
+​
+			<div>
+				<p>Don't have an account? <a th:href="@{/signup}">Sign Up!</a> </p>
+			</div>
+			
+	</div>
+		
+</div>
+
+	<footer th:replace="fragments/footer"></footer>	
+
+</body>
+</html>
+

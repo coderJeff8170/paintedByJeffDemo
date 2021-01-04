@@ -1,0 +1,25 @@
+//TUWBAT login via a simple login screen
+//TUWBAT sign up for an account
+
+
+//TODO: if the user is an admin, allow them to add a new product.
+
+//TODO: enable login screen
+//TODO: enable signup screen
+
+//TODO: Add another check to make sure their password is secure.
+
+Make sure their password is:
+
+At least 8 characters long
+Contains at least 1 capital and 1 lowercase letter
+Contains 1 number
+Contains 1 special character (@, $, #, %, ?, !, etc.)
+ 
+
+If the password is not secure, throw an error just like we did when the user already existed.
+
+
+suggestions: 
+
+maybe swap sizes of contact icons large for small screen/small for large screen?
