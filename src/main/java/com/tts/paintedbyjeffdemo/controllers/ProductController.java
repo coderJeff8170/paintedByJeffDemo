@@ -1,5 +1,7 @@
 package com.tts.paintedbyjeffdemo.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +22,17 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    
+    //TODO: add a products attribute - it's going to be a list
+    
     @GetMapping("/product/{id}")
     public String show(@PathVariable int id, Model model) {
         Product product = productService.findById(id);
+        String category = product.getCategory();
+        System.out.println(category);
+        List<Product> products = productService.findByCategory(category);
         model.addAttribute(product);
+        model.addAttribute("products", products);
         return "product";
     }
 

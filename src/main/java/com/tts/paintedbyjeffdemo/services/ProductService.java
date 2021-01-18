@@ -43,16 +43,6 @@ public class ProductService {
 
     //TODO: implement this as find by size or category
     
-//    public List<Product> findByBrandAndOrCategory(String brand, String category) {
-//        if(category == null && brand == null)
-//            return productRepository.findAll();
-//        else if(category == null)
-//            return productRepository.findByBrand(brand);
-//        else if(brand == null)
-//            return  productRepository.findByCategory(category);
-//        else
-//            return productRepository.findByBrandAndCategory(brand, category);
-//    }
     
   public List<Product> findByCategory(String category) {
   if(category == null)
@@ -60,4 +50,7 @@ public class ProductService {
   else 
       return  productRepository.findByCategory(category);
 }
+  //if we want to find items under one category, would it be findDistinctCategory??
+  
+  
 }
