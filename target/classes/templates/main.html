@@ -3,6 +3,7 @@
 <title>PaintedByJeffDemo-main</title>
 
 	<div th:replace="fragments/head"></div>
+	
 </head>
 
 <body>
@@ -40,23 +41,37 @@
 				th:text="${category}" th:href="@{/filter(category=${category})}">
 			</a>
 		  </div>
+		  <!-- testing for jQuery product filter
+		  
+				id or attributes?
+				hide by class - figure out what display currently is
+				show class for individual category
+				hide class for all others.
+		  
+		  	<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+		    <a class="dropdown-item" href="/">All</a>
+		    <a class="dropdown-item" th:each="category : ${categories}"
+				th:text="${category}" th:href="@{/filter(category=${category})}">
+			</a>
+		  </div>
+		   -->
 		</div>
       </div>
       
       <!-- container to hold cards -->
       <div class="row d-flex justify-content-center">
       <!-- card -->
-      <div th:each="product:${products}" class="cardContainer">
-        <div class="card" style="width: 18rem;">
-        	<a th:href="@{/product/} + ${product.id}" style="text-decoration: none; color: black;">
-          		<img th:src="${product.image}" class="card-img-top" alt="${product.description}">
-          		<div class="card-body">
-            		<h5 class="card-title" th:text="${product.name}"></h5>
-            		<p class="card-text" th:text="${product.description}"></p>
-            	</div>
-            </a>
-        </div>
-		</div>
+	      <div th:each="product:${products}" th:class="${product.category} + ' ' + cardContainer">
+		        <div class="card" style="width: 18rem;">
+		        	<a th:href="@{/product/} + ${product.id}" style="text-decoration: none; color: black;">
+		          		<img th:src="${product.image}" class="card-img-top" alt="${product.description}">
+		          		<div class="card-body">
+		            		<h5 class="card-title" th:text="${product.name}"></h5>
+		            		<p class="card-text" th:text="${product.description}"></p>
+		            	</div>
+		            </a>
+		        </div>
+			</div>
 		</div>
     </section>
 		

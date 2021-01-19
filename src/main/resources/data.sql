@@ -3,7 +3,7 @@ MERGE INTO `role` VALUES (2,'ADMIN');
 
 merge into `product` values 
 	(1, 
-	'Pets', 
+	'pets', 
 	'Painting of a dog',
 	'12 x 12',
 	'https://www.paintedbyjeff.com/assets/FullSize/Neyland12x12.jpg',
@@ -13,7 +13,7 @@ merge into `product` values
 	false);
 merge into `product` values 
 	(2,
-	'Snapshots', 
+	'snapshots', 
 	'Painting of a boy with a fish',
 	'16 x 12',
 	'https://www.paintedbyjeff.com/assets/FullSize/FloridaBoy16x12.jpg',
@@ -23,7 +23,7 @@ merge into `product` values
 	false);
 merge into `product` values 
 	(3, 
-	'People', 
+	'people', 
 	'Painting of a woman with a dog',
 	'18 x 24',
 	'https://www.paintedbyjeff.com/assets/FullSize/ElizabethAnnabell18x24.jpg',
