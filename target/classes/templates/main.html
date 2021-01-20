@@ -3,7 +3,11 @@
 <title>PaintedByJeffDemo-main</title>
 
 	<div th:replace="fragments/head"></div>
-	
+	<style>
+		.hide {
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
@@ -30,7 +34,7 @@
         <h1>Featured/For Sale</h1>
       </div>
       <div>
-      	<div class="dropdown">
+      	<!-- <div class="dropdown">
 		  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		    Filter By Category
 		  </a>
@@ -41,7 +45,7 @@
 				th:text="${category}" th:href="@{/filter(category=${category})}">
 			</a>
 		  </div>
-		  <!-- testing for jQuery product filter
+		  testing for jQuery product filter
 		  
 				id or attributes?
 				hide by class - figure out what display currently is
@@ -51,10 +55,31 @@
 		  	<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 		    <a class="dropdown-item" href="/">All</a>
 		    <a class="dropdown-item" th:each="category : ${categories}"
-				th:text="${category}" th:href="@{/filter(category=${category})}">
+				th:text="${category}" th:attr="onclick=|showItemsByCategory('${category}')|">
 			</a>
 		  </div>
-		   -->
+		   
+		</div> -->
+		<div class="dropdown">
+		  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    Filter By Category
+		  </a>
+		
+		  
+		  <!-- testing for jQuery product filter
+		  
+				id or attributes?
+				hide by class - figure out what display currently is
+				show class for individual category
+				hide class for all others. -->
+		  
+		  	<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+		    <a class="dropdown-item" th:attr="onclick=|showAllItems()|">All</a>
+		    <a class="dropdown-item" th:each="category : ${categories}"
+				th:text="${category}" th:attr="onclick=|showItemsByCategory('${category}')|">
+			</a>
+		  </div>
+		   
 		</div>
       </div>
       
@@ -78,6 +103,21 @@
 </div>
 
 	<footer id="footer" th:replace="fragments/footer"></footer>	
+	<script>
+		const productList = document.querySelectorAll(".cardContainer")
+		function showAllItems(){
+			productList.forEach(el => el.classList.remove("hide"));
+		}
+		
+		function showItemsByCategory(category) {
+			const item = document.querySelector(`.${category}`);
+			//if node doesn't have the category name, append hidden class
+			//if it does have the category name, make sure it doesn't have the hidden class
+			
+		  productList.forEach(el => el.classList.contains(category)?el.classList.remove("hide"):el.classList.add("hide"));
+			//console.log(productList[0].classList);
+		}
+	</script>
 
 </body>
 </html>
