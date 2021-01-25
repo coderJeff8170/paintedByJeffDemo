@@ -3,6 +3,7 @@
 <title>PaintedByJeffDemo-main</title>
 	<div th:replace="fragments/head"></div>
 	<style>
+	
 		#product {
 		
 			margin-top: 75px;
@@ -27,16 +28,13 @@
 		  to {transform:scale(1)}
 		}
 
-
 	</style>
 </head>
 
 <body>
 	
-	
 	<header>
 		<div th:replace="fragments/navbar"></div>
-	      
   	</header>
   	
   	<!--Main layout-->
@@ -58,10 +56,9 @@
 				
 				<a data-toggle="modal" data-target="#exampleModalCenter" style="cursor: zoom-in;">
 					<!-- <div style="overflow: hidden;" > -->
-					<div  >
+					<div>
 				        <img th:alt="${product.name}" th:src="@{${product.image}}" style="opacity: 1; width: 100%;">
 				    </div>
-				
 				</a>
 				
 				<!-- Modal -->
@@ -230,8 +227,6 @@
 		</div>
 	</div>
 	</div>
-	
-
 
 	<footer th:replace="fragments/footer"></footer>	
 

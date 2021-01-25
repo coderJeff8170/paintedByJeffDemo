@@ -108,6 +108,10 @@ section h1 {
   object-fit: cover;
 }
 
+.card:hover {
+	transform: scale(1.05);
+}
+
 
 .bdGallery {
   display: flex;
